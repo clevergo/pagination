@@ -20,7 +20,7 @@ func query(limit, offset int64) (total int64, es []entity, err error) {
 func index(w http.ResponseWriter, req *http.Request) {
     p := pagination.NewFromRequest(req)
     p.Total, p.Items, _ = query(p.Limit, p.Offset())
-	data, _ := json.Marshal(p)
-	w.Write(data)
+    data, _ := json.Marshal(p)
+    w.Write(data)
 }
 ```
