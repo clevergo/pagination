@@ -1,5 +1,5 @@
-module github.com/clevergo/____
+module github.com/clevergo/pagination
 
 go 1.13
 
-require github.com/stretchr/testify v1.5.1 // indirect
+require github.com/stretchr/testify v1.5.1
