@@ -10,13 +10,19 @@ import (
 )
 
 var (
-	PageParam          = "page"
-	LimitParam         = "limit"
-	MaxLimit     int64 = 1000
-	DefaultPage  int64 = 1
+	// PageParam defines the name of page parameter.
+	PageParam = "page"
+	// LimitParam defines the name of limit parameter.
+	LimitParam = "limit"
+	// MaxLimit defines a maximum number of limitation.
+	MaxLimit int64 = 1000
+	// DefaultPage defines the default value of page.
+	DefaultPage int64 = 1
+	// DefaultLimit defines the default value of limit.
 	DefaultLimit int64 = 20
 )
 
+// Pagination represents a paginated list of data items.
 type Pagination struct {
 	Page  int64       `json:"page"`
 	Limit int64       `json:"limit"`
