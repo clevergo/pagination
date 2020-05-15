@@ -7,6 +7,8 @@ package pagination
 import (
 	"net/http"
 	"strconv"
+
+	"github.com/clevergo/clevergo"
 )
 
 var (
@@ -44,6 +46,14 @@ func NewFromRequest(req *http.Request) *Pagination {
 	return New(
 		parsePage(query.Get(PageParam)),
 		parseLimit(query.Get(LimitParam)),
+	)
+}
+
+// NewFromContext returns a pagination from the given context.
+func NewFromContext(ctx *clevergo.Context) *Pagination {
+	return New(
+		parsePage(ctx.QueryParam(PageParam)),
+		parseLimit(ctx.QueryParam(LimitParam)),
 	)
 }
 

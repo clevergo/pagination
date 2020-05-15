@@ -10,6 +10,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/clevergo/clevergo"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -29,12 +30,14 @@ func TestNew(t *testing.T) {
 	}
 }
 
-func TestNewFromContext(t *testing.T) {
-	cases := []struct {
-		req   *http.Request
-		page  int64
-		limit int64
-	}{
+type requestTestCase struct {
+	req   *http.Request
+	page  int64
+	limit int64
+}
+
+func requestTestCases() []requestTestCase {
+	return []requestTestCase{
 		{httptest.NewRequest(http.MethodGet, "/", nil), DefaultPage, DefaultLimit},
 		{httptest.NewRequest(http.MethodGet, "/?page=1", nil), 1, DefaultLimit},
 		{httptest.NewRequest(http.MethodGet, "/?limit=10", nil), DefaultPage, 10},
@@ -44,8 +47,19 @@ func TestNewFromContext(t *testing.T) {
 		{httptest.NewRequest(http.MethodGet, "/?page=1&limit=-1", nil), 1, DefaultLimit},
 		{httptest.NewRequest(http.MethodGet, fmt.Sprintf("/?page=1&limit=%d", MaxLimit+1), nil), 1, MaxLimit},
 	}
-	for _, test := range cases {
+}
+
+func TestNewFromRequest(t *testing.T) {
+	for _, test := range requestTestCases() {
 		p := NewFromRequest(test.req)
+		assert.Equal(t, test.page, p.Page)
+		assert.Equal(t, test.limit, p.Limit)
+	}
+}
+
+func TestNewFromContext(t *testing.T) {
+	for _, test := range requestTestCases() {
+		p := NewFromContext(&clevergo.Context{Request: test.req})
 		assert.Equal(t, test.page, p.Page)
 		assert.Equal(t, test.limit, p.Limit)
 	}
