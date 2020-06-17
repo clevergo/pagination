@@ -1,5 +1,5 @@
-github.com/clevergo/clevergo v1.12.2 h1:LP8MwV62n70PcwdiwbaRx5JHS21KdekubJFJgf/fd/I=
-github.com/clevergo/clevergo v1.12.2/go.mod h1:CXwWkYV6APhZU4XQ4QS6LvsutBaZYi0wMDOanjuOIlg=
+clevergo.tech/clevergo v0.1.0 h1:OPifgX5vlnlAieVKIt1Wd9klP5dzPbqQoG1h2QRMCM0=
+clevergo.tech/clevergo v0.1.0/go.mod h1:T/O3eumTaCGhGYyUa2SsKfihykKsw48D6wwSuQTSyk0=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=

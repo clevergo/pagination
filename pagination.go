@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/clevergo/clevergo"
+	"clevergo.tech/clevergo"
 )
 
 var (

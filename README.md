@@ -1,14 +1,14 @@
 # Pagination
 [![Build Status](https://travis-ci.org/clevergo/pagination.svg?branch=master)](https://travis-ci.org/clevergo/pagination)
 [![Coverage Status](https://coveralls.io/repos/github/clevergo/pagination/badge.svg?branch=master)](https://coveralls.io/github/clevergo/pagination?branch=master)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue)](https://pkg.go.dev/github.com/clevergo/pagination)
+[![Go.Dev reference](https://img.shields.io/badge/go.dev-reference-blue?logo=go&logoColor=white)](https://pkg.go.dev/clevergo.tech/pagination?tab=doc)
 [![Go Report Card](https://goreportcard.com/badge/github.com/clevergo/pagination)](https://goreportcard.com/report/github.com/clevergo/pagination)
 [![Release](https://img.shields.io/github/release/clevergo/pagination.svg?style=flat-square)](https://github.com/clevergo/pagination/releases)
 
 ## Usage
 
 ```go
-import "github.com/clevergo/pagination"
+import "clevergo.tech/pagination"
 ```
 
 ```go
