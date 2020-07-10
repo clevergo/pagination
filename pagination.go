@@ -82,6 +82,11 @@ func (p *Pagination) PageCount() int64 {
 	return (p.Total + p.Limit - 1) / p.Limit
 }
 
+// UnsignedPageCount returns the unsigned number of pages.
+func (p *Pagination) UnsignedPageCount() uint64 {
+	return uint64(p.PageCount())
+}
+
 // Pages returns a set of page numbers for rendering pagination.
 // Zero means dots.
 func (p *Pagination) Pages() (pages []int64) {

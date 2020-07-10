@@ -88,6 +88,7 @@ func TestPaginationPageCount(t *testing.T) {
 			Limit: test.limit,
 		}
 		assert.Equal(t, test.pageCount, p.PageCount())
+		assert.Equal(t, uint64(test.pageCount), p.UnsignedPageCount())
 	}
 }
 
