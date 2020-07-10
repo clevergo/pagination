@@ -57,9 +57,19 @@ func NewFromContext(ctx *clevergo.Context) *Pagination {
 	)
 }
 
+// Upage returns unsigned page.
+func (p *Pagination) Upage() uint64 {
+	return uint64(p.Page)
+}
+
 // Offset returns offset.
 func (p *Pagination) Offset() int64 {
 	return (p.Page - 1) * p.Limit
+}
+
+// Uoffset returns unsigned offset.
+func (p *Pagination) Uoffset() uint64 {
+	return uint64(p.Offset())
 }
 
 // PageCount returns the number of pages.
