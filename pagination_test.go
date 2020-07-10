@@ -28,6 +28,7 @@ func TestNew(t *testing.T) {
 		assert.Equal(t, test.page, p.Page)
 		assert.Equal(t, uint64(test.page), p.Upage())
 		assert.Equal(t, test.limit, p.Limit)
+		assert.Equal(t, uint64(test.limit), p.Ulimit())
 	}
 }
 

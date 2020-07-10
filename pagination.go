@@ -62,6 +62,11 @@ func (p *Pagination) Upage() uint64 {
 	return uint64(p.Page)
 }
 
+// Ulimit returns the unsigned limit.
+func (p *Pagination) Ulimit() uint64 {
+	return uint64(p.Limit)
+}
+
 // Offset returns offset.
 func (p *Pagination) Offset() int64 {
 	return (p.Page - 1) * p.Limit
