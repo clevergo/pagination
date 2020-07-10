@@ -57,7 +57,7 @@ func NewFromContext(ctx *clevergo.Context) *Pagination {
 	)
 }
 
-// Upage returns unsigned page.
+// Upage returns the unsigned page.
 func (p *Pagination) Upage() uint64 {
 	return uint64(p.Page)
 }
@@ -67,12 +67,12 @@ func (p *Pagination) Ulimit() uint64 {
 	return uint64(p.Limit)
 }
 
-// Offset returns offset.
+// Offset returns the offset.
 func (p *Pagination) Offset() int64 {
 	return (p.Page - 1) * p.Limit
 }
 
-// Uoffset returns unsigned offset.
+// Uoffset returns the unsigned offset.
 func (p *Pagination) Uoffset() uint64 {
 	return uint64(p.Offset())
 }
