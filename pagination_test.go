@@ -26,9 +26,9 @@ func TestNew(t *testing.T) {
 	for _, test := range cases {
 		p := New(test.page, test.limit)
 		assert.Equal(t, test.page, p.Page)
-		assert.Equal(t, uint64(test.page), p.Upage())
+		assert.Equal(t, uint64(test.page), p.UnsignedPage())
 		assert.Equal(t, test.limit, p.Limit)
-		assert.Equal(t, uint64(test.limit), p.Ulimit())
+		assert.Equal(t, uint64(test.limit), p.UnsignedLimit())
 	}
 }
 
@@ -108,7 +108,7 @@ func TestPaginationOffset(t *testing.T) {
 			Limit: test.limit,
 		}
 		assert.Equal(t, test.offset, p.Offset())
-		assert.Equal(t, uint64(test.offset), p.Uoffset())
+		assert.Equal(t, uint64(test.offset), p.UnsignedOffset())
 	}
 }
 
