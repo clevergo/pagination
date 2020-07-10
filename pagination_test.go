@@ -108,3 +108,34 @@ func TestPaginationOffset(t *testing.T) {
 		assert.Equal(t, test.offset, p.Offset())
 	}
 }
+
+func TestPaginationPages(t *testing.T) {
+	cases := []struct {
+		page  int64
+		limit int64
+		total int64
+		pages []int64
+	}{
+		{1, 10, 0, nil},
+		{1, 10, 5, []int64{1}},
+		{1, 10, 10, []int64{1}},
+		{1, 10, 100, []int64{1, 2, 3, 0, 10}},
+		{2, 10, 100, []int64{1, 2, 3, 4, 0, 10}},
+		{3, 10, 100, []int64{1, 2, 3, 4, 5, 0, 10}},
+		{4, 10, 100, []int64{1, 2, 3, 4, 5, 6, 0, 10}},
+		{5, 10, 100, []int64{1, 0, 3, 4, 5, 6, 7, 0, 10}},
+		{6, 10, 100, []int64{1, 0, 4, 5, 6, 7, 8, 0, 10}},
+		{7, 10, 100, []int64{1, 0, 5, 6, 7, 8, 9, 10}},
+		{8, 10, 100, []int64{1, 0, 6, 7, 8, 9, 10}},
+		{9, 10, 100, []int64{1, 0, 7, 8, 9, 10}},
+		{10, 10, 100, []int64{1, 0, 8, 9, 10}},
+	}
+	for _, test := range cases {
+		p := Pagination{
+			Page:  test.page,
+			Limit: test.limit,
+			Total: test.total,
+		}
+		assert.Equal(t, test.pages, p.Pages())
+	}
+}

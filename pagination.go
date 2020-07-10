@@ -67,6 +67,25 @@ func (p *Pagination) PageCount() int64 {
 	return (p.Total + p.Limit - 1) / p.Limit
 }
 
+// Pages returns a set of page numbers for rendering pagination.
+// Zero means dots.
+func (p *Pagination) Pages() (pages []int64) {
+	total := p.PageCount()
+	min := p.Page - 2
+	max := p.Page + 2
+	dot := false
+	for i := int64(1); i <= total; i++ {
+		if i == 1 || i == total || (min <= i && i <= max) {
+			pages = append(pages, i)
+			dot = false
+		} else if !dot {
+			pages = append(pages, 0)
+			dot = true
+		}
+	}
+	return
+}
+
 func parsePage(s string) int64 {
 	v, err := strconv.ParseInt(s, 10, 64)
 	if err == nil && v > 0 {
